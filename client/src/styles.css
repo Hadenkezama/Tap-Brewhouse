@@ -17,3 +17,13 @@
   border: 2px solid black;
   margin: 5% 5% 5% 5%;
 }
+
+.side-bar {
+  display: flex;
+  position: absolute;
+  left: 0px;
+  top: 25%;
+  width: 200px;
+  height: 40%;
+  border: 2px solid black;
+}

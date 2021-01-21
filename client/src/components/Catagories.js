@@ -1,12 +1,13 @@
 import React from 'react'
 import LiquorPanel from './LiquorPanel'
+import Sidebar from './Sidebar'
 
 const Catagories = () => {
   const booze = [
-    { id: 1, name: 'beer', img: 'img', click: 'http://localhost:3000/beers' },
+    { id: 1, name: 'beers', img: 'img', click: 'http://localhost:3000/beers' },
     {
       id: 2,
-      name: 'liquor',
+      name: 'liqueurs',
       img: 'img',
       click: 'http://localhost:3000/liqueurs',
     },
@@ -26,7 +27,7 @@ const Catagories = () => {
     { id: 6, name: 'other', img: 'img', click: 'http://localhost:3000/other' },
   ]
 
-  const array = booze.map((item) => (
+  const panels = booze.map((item) => (
     <LiquorPanel
       name={item.name}
       img={item.img}
@@ -34,8 +35,18 @@ const Catagories = () => {
       key={item.id}
     />
   ))
+  const sidebar = booze.map((item) => (
+    <li>
+      <a href={item.click}>{item.name}</a>
+    </li>
+  ))
 
-  return <div className="main-display-container">{array}</div>
+  return (
+    <div className="main-display-container">
+      {panels}
+      <Sidebar list={sidebar} />
+    </div>
+  )
 }
 
 export default Catagories
