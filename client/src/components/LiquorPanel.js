@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const LiquorPanel = ({ name, img, price, amount, click }) => {
   return (
@@ -7,7 +8,7 @@ const LiquorPanel = ({ name, img, price, amount, click }) => {
       <p>{img}</p>
       {price ? <p>{price}</p> : ''}
       {amount ? <p>{amount}</p> : ''}
-      {click ? <a href={click}>go to</a> : ''}
+      {click ? <Link to={click}>Go to {name}</Link> : ''}
     </div>
   )
 }
