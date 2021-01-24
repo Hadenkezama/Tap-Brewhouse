@@ -8,7 +8,9 @@ const LiquorLoader = ({ match }) => {
   useEffect(() => {
     async function fetchDrinks() {
       try {
-        await fetch(`http://localhost:9000/drinks/${match.params.drinks}`)
+        await fetch(
+          `http://localhost:9000/drinks/${match.params.drinks}/catagorie/${match.params.catagorie}`,
+        )
           .then((response) => response.json())
           .then((data) => {
             const name = data.map(({ name, img, price, amount }) => (
@@ -27,7 +29,7 @@ const LiquorLoader = ({ match }) => {
       }
     }
     fetchDrinks()
-  }, [match.params.drinks])
+  }, [match])
 
   return (
     <div className="main-display-container">

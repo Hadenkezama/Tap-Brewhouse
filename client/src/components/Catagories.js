@@ -4,27 +4,27 @@ import Sidebar from './Sidebar'
 
 const Catagories = () => {
   const booze = [
-    { id: 1, name: 'beers', img: 'img', click: 'http://localhost:3000/beers' },
+    { id: 1, name: 'beers', img: 'img', click: '/beers' },
     {
       id: 2,
       name: 'liqueurs',
       img: 'img',
-      click: 'http://localhost:3000/liqueurs',
+      click: '/liqueurs',
     },
-    { id: 3, name: 'wine', img: 'img', click: 'http://localhost:3000/wines' },
+    { id: 3, name: 'wine', img: 'img', click: '/wines' },
     {
       id: 4,
       name: 'spirits',
       img: 'img',
-      click: 'http://localhost:3000/spirits',
+      click: '/spirits',
     },
     {
       id: 5,
       name: 'coolers & ciders',
       img: 'img',
-      click: 'http://localhost:3000/coolers&ciders',
+      click: '/coolers_ciders',
     },
-    { id: 6, name: 'other', img: 'img', click: 'http://localhost:3000/other' },
+    { id: 6, name: 'other', img: 'img', click: '/other' },
   ]
 
   const panels = booze.map((item) => (
@@ -36,15 +36,13 @@ const Catagories = () => {
     />
   ))
   const sidebar = booze.map((item) => (
-    <li>
-      <a href={item.click}>{item.name}</a>
-    </li>
+    <Sidebar name={item.name} click={item.click} key={item.id} />
   ))
 
   return (
     <div className="main-display-container">
       {panels}
-      <Sidebar list={sidebar} />
+      <div className="side-bar-container">{sidebar}</div>
     </div>
   )
 }

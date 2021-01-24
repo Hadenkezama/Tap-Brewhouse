@@ -18,12 +18,14 @@
   margin: 5% 5% 5% 5%;
 }
 
-.side-bar {
+.side-bar-container {
   display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   position: absolute;
-  left: 0px;
   top: 25%;
+  left: 0%;
   width: 200px;
-  height: 40%;
+  height: auto;
   border: 2px solid black;
 }
