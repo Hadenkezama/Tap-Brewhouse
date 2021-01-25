@@ -40,9 +40,37 @@ const CatagorieLoader = ({ drinkType }) => {
     fetchCatagories()
   }, [drinkType])
 
-  const sidebar = catagorieArray.map((item) => (
-    <Sidebar name={item} click={`/${drinkType}/catagorie/${item}`} key={item} />
-  ))
+  let sidebar
+
+  if (drinkType === 'wines') {
+    sidebar = catagorieArray.map((item) => {
+      if (item === 'Red' || item === 'White' || item === 'Blush&Rose') {
+        return (
+          <Sidebar
+            name={item}
+            click={`/${drinkType}/catagorie/wine_colour/${item}`}
+            key={item}
+          />
+        )
+      } else {
+        return (
+          <Sidebar
+            name={item}
+            click={`/${drinkType}/catagorie/wine_region/${item}`}
+            key={item}
+          />
+        )
+      }
+    })
+  } else {
+    sidebar = catagorieArray.map((item) => (
+      <Sidebar
+        name={item}
+        click={`/${drinkType}/catagorie/${item}`}
+        key={item}
+      />
+    ))
+  }
 
   return <div className="side-bar-container">{sidebar}</div>
 }

@@ -31,7 +31,11 @@ const LiquorLoader = ({ match }) => {
 
   return (
     <div className="main-display-container">
-      <CatagorieLoader drinkType={match.params.drinks} />
+      {match.params.drinks === 'other' ? (
+        ''
+      ) : (
+        <CatagorieLoader drinkType={match.params.drinks} />
+      )}
       {liquorArray}
       <a href="http://localhost:3000/">Catagories</a>
     </div>
