@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import LiquorPanel from '../components/LiquorPanel'
+import booze from '../Datafiles/CatagorieList'
+import Sidebar from '../components/Sidebar'
 
 const DrinkSearchLoader = ({ match }) => {
   const [drink, setDrink] = useState()
 
   useEffect(() => {
     const fetchBeer = async () => {
-      console.log('hello from beer')
       try {
         await fetch(
           `http://localhost:9000/drinks/beers/search/${match.params.name}`,
@@ -170,7 +171,16 @@ const DrinkSearchLoader = ({ match }) => {
     }
   }, [match])
 
-  return <div>{drink}</div>
+  const sidebar = booze.map((item) => (
+    <Sidebar name={item.name} click={item.click} key={item.id} />
+  ))
+
+  return (
+    <div className="main-display-container">
+      {drink}
+      <div className="side-bar-container">{sidebar}</div>
+    </div>
+  )
 }
 
 export default DrinkSearchLoader
