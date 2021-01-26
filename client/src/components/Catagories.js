@@ -11,7 +11,7 @@ const Catagories = () => {
       img: 'img',
       click: '/liqueurs',
     },
-    { id: 3, name: 'wine', img: 'img', click: '/wines' },
+    { id: 3, name: 'wines', img: 'img', click: '/wines' },
     {
       id: 4,
       name: 'spirits',
